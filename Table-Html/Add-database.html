@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add Employee</title>
+    <style>
+        form {
+            border: 1px solid black;
+            
+        }
+       
+    </style>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('#addButton').click(function() {
+				var firstname = $('#firstname').val();
+				var lastname = $('#lasttname').val();
+				var Age = $('#age').val();
+
+				$.ajax({
+					url: 'add_employee.php',
+					type: 'POST',
+					data: {
+						name: firstname,
+						position: lasttname,
+						salary: age
+					},
+					success: function(response) {
+						alert(response);
+					}
+				});
+			});
+		});
+	</script>
+</head>
+<body>
+    <form action="">
+	<h1>Add Employee</h1>
+	<label for="name">Id:</label>
+	<input type="text" id="name" name="Id"><br><br>
+	<label for="position">First Name:</label>
+	<input type="text" id="position" name="First Name"><br><br>
+	<label for="Last Name">Last Name:</label>
+	<input type="text" id="Last Name" name="Last Name"><br><br>
+    <label for="age">Age:</label>
+    <input type="text" id="age" name="Age"><br><br>
+
+
+	<button id="addButton">ADD</button>
+    <button id="Update">Update</button>
+	<button id="Delete">Delete</button>
+	<button id="Find">find</button>
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    .container {
+      margin-top: 100px;
+    }
+
+    .result {
+      width: 200px;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #0056b3;
+    }
+
+    .btn:focus {
+      outline: none;
+    }
+    h1 {
+        align-items: center;
+        
+
+    }
+  </style>
+  <script>
+    function calculate(operation) {
+      var num1 = parseInt(document.getElementById("number1").value);
+      var num2 = parseInt(document.getElementById("number2").value);
+      var result = document.getElementById("result");
+
+      if (isNaN(num1) || isNaN(num2)) {
+        result.value = "Invalid input";
+        return;
+      }
+
+      switch (operation) {
+        case "add":
+          result.value = num1 + num2;
+          break;
+        case "subtract":
+          result.value = num1 - num2;
+          break;
+        case "multiply":
+          result.value = num1 * num2;
+          break;
+        case "divide":
+          if (num2 === 0) {
+            result.value = "Cannot divide by zero";
+          } else {
+            result.value = num1 / num2;
+          }
+          break;
+        default:
+          result.value = "Invalid operation";
+          break;
+      }
+    }
+  </script>
+</head>
+<body>
+    <h2><u>Enter a number in each text box</u></h2>
+  <div class="container">
+    <label for="Number 1" >Number 1:</label>
+    <input type="number" id="number1" placeholder="Enter number 1"><br> <br>
+    <label for="Number 2" >Number 2:</label>
+    <input type="number" id="number2" placeholder="Enter number 2"><br><br>
+   
+    <button class="btn" onclick="calculate('add')">Add</button>
+    <button class="btn" onclick="calculate('subtract')">Subtract</button>
+    <button class="btn" onclick="calculate('multiply')">Multiply</button>
+    <button class="btn" onclick="calculate('divide')">Divide</button><br><br>
+    <label for="Result" >Result is:</label>
+
+    <input type="text" id="result" class="result" readonly>
+  
+  </div>
+</body>
+</html>
